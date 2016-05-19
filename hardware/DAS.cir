@@ -1,0 +1,183 @@
+* D:\DAS\DAS.cir
+
+* EESchema Netlist Version 1.1 (Spice format) creation date: 4/21/2016 8:19:03 PM
+
+* To exclude a component from the Spice Netlist add [Spice_Netlist_Enabled] user FIELD set to: N
+* To reorder the component spice node sequence add [Spice_Node_Sequence] user FIELD and define sequence: 2,1,0
+
+* Sheet Name: /
+P1  GNDD VPP CANL CANH CONN_01X04		
+P2  BKGD GNDD ? ~RST ? +5VD CONN_02X03		
+P4  Net-_D7-Pad2_ Net-_D7-Pad1_ CONN_01X02		
+U6  Net-_R9-Pad2_ Net-_U6-Pad2_ Net-_U6-Pad2_ /Mux0 Net-_D7-Pad2_ K- Net-_D7-Pad1_ K+ ASSR_45_1228_45_002		
+R9  +5VD Net-_R9-Pad2_ 470R		
+P5  Net-_D8-Pad2_ Net-_D8-Pad1_ CONN_01X02		
+U7  Net-_R12-Pad2_ Net-_U7-Pad2_ Net-_U7-Pad2_ /Mux1 Net-_D8-Pad2_ K- Net-_D8-Pad1_ K+ ASSR_45_1228_45_002		
+R12  +5VD Net-_R12-Pad2_ 470R		
+P6  Net-_D9-Pad2_ Net-_D9-Pad1_ CONN_01X02		
+R15  +5VD Net-_R15-Pad2_ 470R		
+P7  Net-_D10-Pad2_ Net-_D10-Pad1_ CONN_01X02		
+U9  Net-_R18-Pad2_ Net-_U9-Pad2_ Net-_U9-Pad2_ /Mux3 Net-_D10-Pad2_ K- Net-_D10-Pad1_ K+ ASSR_45_1228_45_002		
+R18  +5VD Net-_R18-Pad2_ 470R		
+U1  Net-_C1-Pad1_ GNDD +5VD 7805		
+C1  Net-_C1-Pad1_ GNDD 1000u		
+C2  Net-_C1-Pad1_ GNDD 10u		
+C4  +5VD GNDD 1u		
+U8  Net-_R15-Pad2_ Net-_U8-Pad2_ Net-_U8-Pad2_ /Mux2 Net-_D9-Pad2_ K- Net-_D9-Pad1_ K+ ASSR_45_1228_45_002		
+R5  Net-_D5-Pad3_ K- 681R		
+D5  GNDADC +3.3VADC Net-_D5-Pad3_ BAV199LT1G		
+R6  Net-_C19-Pad1_ Net-_D5-Pad3_ 301R		
+C19  Net-_C19-Pad1_ GNDADC 1n		
+C20  Net-_C19-Pad1_ Net-_C20-Pad2_ 10n		
+R7  Net-_D6-Pad3_ K+ 681R		
+D6  GNDADC +3.3VADC Net-_D6-Pad3_ BAV199LT1G		
+R8  Net-_C20-Pad2_ Net-_D6-Pad3_ 301R		
+U4  Net-_U3-Pad13_ ? Net-_U3-Pad14_ ? Net-_C20-Pad2_ Net-_C19-Pad1_ ? K- ? ? ? GNDADC +3.3VADC +5VA Net-_U3-Pad11_ Net-_U3-Pad12_ AD7792BRUZ		
+C17  +5VA GNDA 10u		
+C18  +5VA GNDA 0.1u		
+C14  +5VA GNDA 0.1u		
+C13  +5VA GNDA 10u		
+C11  +3.3VADC GNDADC 10u		
+C12  +3.3VADC GNDADC 0.1u		
+D3  +3.3VADC GNDADC MM3Z3V6S		
+C9  +3.3VADC GNDADC 1u		
+C10  +5VA GNDADC 1u		
+C5  +5VD GNDD 10u		
+D2  +12V GNDD 1SMA30CA		
+C8  +12V GNDD 0.01u		
+D4  +5VA GNDA MM3Z5V6S		
+C6  +5VD GNDD 10u		
+C7  +5VD GNDD 0.1u		
+C22  +5VD GNDD 0.1u		
+C26  +5VD GNDD 10u		
+C25  +5VD GNDD 0.1u		
+C29  +5VD GNDD 10u		
+C28  +5VD GNDD 0.1u		
+C32  +5VD GNDD 10u		
+C31  +5VD GNDD 0.1u		
+P8  Net-_D11-Pad2_ Net-_D11-Pad1_ CONN_01X02		
+U10  Net-_R21-Pad2_ Net-_U10-Pad2_ Net-_U10-Pad2_ /Mux4 Net-_D11-Pad2_ K- Net-_D11-Pad1_ K+ ASSR_45_1228_45_002		
+R21  +5VD Net-_R21-Pad2_ 470R		
+P9  Net-_D12-Pad2_ Net-_D12-Pad1_ CONN_01X02		
+U11  Net-_R24-Pad2_ Net-_U11-Pad2_ Net-_U11-Pad2_ /Mux5 Net-_D12-Pad2_ K- Net-_D12-Pad1_ K+ ASSR_45_1228_45_002		
+R24  +5VD Net-_R24-Pad2_ 470R		
+P10  Net-_D13-Pad2_ Net-_D13-Pad1_ CONN_01X02		
+R27  +5VD Net-_R27-Pad2_ 470R		
+P12  Net-_D16-Pad2_ Net-_D16-Pad1_ CONN_01X02		
+U14  Net-_R33-Pad2_ Net-_U14-Pad2_ Net-_U14-Pad2_ /Mux7 Net-_D16-Pad2_ K- Net-_D16-Pad1_ K+ ASSR_45_1228_45_002		
+R33  +5VD Net-_R33-Pad2_ 470R		
+U12  Net-_R27-Pad2_ Net-_U12-Pad2_ Net-_U12-Pad2_ /Mux6 Net-_D13-Pad2_ K- Net-_D13-Pad1_ K+ ASSR_45_1228_45_002		
+C35  +5VD GNDD 10u		
+C34  +5VD GNDD 0.1u		
+C38  +5VD GNDD 10u		
+C37  +5VD GNDD 0.1u		
+C43  +5VD GNDD 10u		
+C42  +5VD GNDD 0.1u		
+C50  +5VD GNDD 10u		
+C49  +5VD GNDD 0.1u		
+R1  +5VA Net-_R1-Pad2_ 4k7		
+U2  +5VA GNDADC Net-_R1-Pad2_ ? +3.3VADC LP5907_DBV_5		
+U19  /Addr0 /Addr1 /Addr2 GNDD GNDD /AddrEN /Mux7 GNDD /Mux6 /Mux5 /Mux4 /Mux3 /Mux2 /Mux1 /Mux0 +5VD SN74HC138_PW_16		
+C57  +5VD GNDD 1u		
+C56  +5VD GNDD 0.1u		
+C15  +5VD GNDD 10u		
+C16  +5VD GNDD 0.1u		
+U5  /CS1 Net-_U3-Pad6_ GNDD /MISO +5VD SN74LV1T125DBVR		
+R2  Net-_R2-Pad1_ +5VA 4k7		
+U3  +5VD GNDD /CS1 /SCLK /MOSI Net-_U3-Pad6_ ? GNDD GNDA Net-_R2-Pad1_ Net-_U3-Pad11_ Net-_U3-Pad12_ Net-_U3-Pad13_ Net-_U3-Pad14_ GNDA +5VA ADUM5401ARWZ		
+R3  GNDA Net-_R2-Pad1_ NC		
+D7  Net-_D7-Pad1_ Net-_D7-Pad2_ GNDA NUP2115L		
+D8  Net-_D8-Pad1_ Net-_D8-Pad2_ GNDA NUP2115L		
+D9  Net-_D9-Pad1_ Net-_D9-Pad2_ GNDA NUP2115L		
+D10  Net-_D10-Pad1_ Net-_D10-Pad2_ GNDA NUP2115L		
+D11  Net-_D11-Pad1_ Net-_D11-Pad2_ GNDA NUP2115L		
+D12  Net-_D12-Pad1_ Net-_D12-Pad2_ GNDA NUP2115L		
+D13  Net-_D13-Pad1_ Net-_D13-Pad2_ GNDA NUP2115L		
+D16  Net-_D16-Pad1_ Net-_D16-Pad2_ GNDA NUP2115L		
+U15  /ADP7 +5VD GNDD Net-_C46-Pad1_ Net-_C45-Pad1_ ~RST TxD RxD Net-_D14-Pad1_ /SCLK /MOSI /MISO Net-_U13-Pad1_ Net-_U13-Pad4_ /Addr0 /Addr1 /Addr2 /AddrEN GPIO0 GPIO1 BKGD /CS0 /ADP0 /CS1 /ADP1 /ADP2 /ADP3 GNDD VDDA /ADP4 /ADP5 /ADP6 MC9S08DZ_LC		
+C41  +5VD GNDD 10u		
+C40  +5VD GNDD 0.1u		
+P3  GNDD RxD TxD CONN_01X03		
+Y1  Net-_C45-Pad1_ Net-_C46-Pad1_ 8MHz		
+R30  Net-_C45-Pad1_ Net-_C46-Pad1_ 1M		
+C46  Net-_C46-Pad1_ GNDD 10p		
+C45  Net-_C45-Pad1_ GNDD 10p		
+C60  VDDA GNDD 1u		
+C61  +5VD GNDD 1u		
+R38  +5VD Net-_R38-Pad2_ 4k7		
+U17  +5VD GNDD Net-_R38-Pad2_ ? VDDA LP5907_DBV_5		
+C59  GNDD VDDA 1u		
+C58  GNDD VDDA 0.1u		
+U20  Net-_R44-Pad2_ Net-_U20-Pad2_ GNDD GNDD Net-_R43-Pad2_ Net-_R41-Pad2_ Net-_R40-Pad2_ Net-_C63-Pad1_ SST25VF512A-33-4		
+C65  Net-_C63-Pad1_ GNDD 10u		
+C64  Net-_C63-Pad1_ GNDD 0.1u		
+C66  +5VD GNDD 10u		
+C67  +5VD GNDD 0.1u		
+U21  /CS0 Net-_U20-Pad2_ GNDD /MISO +5VD SN74LV1T125DBVR		
+R40  Net-_C63-Pad1_ Net-_R40-Pad2_ 4k7		
+R41  /SCLK Net-_R41-Pad2_ 1k		
+C63  Net-_C63-Pad1_ GNDD 1u		
+C62  +5VD GNDD 1u		
+R39  +5VD Net-_R39-Pad2_ 4k7		
+U18  +5VD GNDD Net-_R39-Pad2_ ? Net-_C63-Pad1_ LP5907_DBV_5		
+R43  /MOSI Net-_R43-Pad2_ 1k		
+R44  /CS0 Net-_R44-Pad2_ 1k		
+D1  Net-_C1-Pad1_ +12V MBR0530		
+R37  GNDD GNDD 0		
+R10  VDDA /ADP7 4.99K		
+C3  +5VD GNDD 0.1u		
+C21  GNDADC Net-_C20-Pad2_ 1n		
+R13  VDDA /ADP6 4.99K		
+R16  VDDA /ADP5 4.99K		
+R19  VDDA /ADP4 4.99K		
+R22  VDDA /ADP3 4.99K		
+R25  VDDA /ADP2 4.99K		
+R28  VDDA /ADP1 4.99K		
+R34  VDDA /ADP0 4.99K		
+R35  GNDD /ADP0 10K		
+U13  Net-_U13-Pad1_ GNDD +5VD Net-_U13-Pad4_ ? CANL CANH GNDD MAX13053ESA+		
+C51  GNDD +5VD 10u		
+C52  GNDD +5VD 0.1u		
+R42  GNDD /AddrEN 4k7		
+R4  GNDA GNDADC 0		
+C53  VDDA GNDD 0.1u		
+C39  VDDA GNDD 0.1u		
+C44  VDDA GNDD 0.1u		
+C36  VDDA GNDD 0.1u		
+C33  VDDA GNDD 0.1u		
+C30  VDDA GNDD 0.1u		
+C27  VDDA GNDD 0.1u		
+C24  VDDA GNDD 0.1u		
+C23  +5VD GNDD 10u		
+D17  CANH CANL GNDD NUP2115L		
+D14  Net-_D14-Pad1_ Net-_D14-Pad2_ Led		
+D15  GNDD Net-_D15-Pad2_ Led		
+R31  +5VD Net-_D14-Pad2_ 1k5		
+R32  +5VD Net-_D15-Pad2_ 1k5		
+P11  GNDD Net-_P11-Pad2_ CANL CANH CONN_01X04		
+U16  Net-_R36-Pad1_ GPIO1 VPP Net-_P11-Pad2_ G3VM-61ER		
+C47  +5VD GNDD 10u		
+C48  +5VD GNDD 0.1u		
+C54  +5VD GNDD 10u		
+C55  +5VD GNDD 0.1u		
+R36  Net-_R36-Pad1_ +5VD 750		
+R29  GNDD /ADP1 10K		
+R26  GNDD /ADP2 10K		
+R23  GNDD /ADP3 10K		
+R20  GNDD /ADP4 10K		
+R17  GNDD /ADP5 10K		
+R14  GNDD /ADP6 10K		
+R11  GNDD /ADP7 10K		
+U23  GNDD GPIO1 +5VD DS18B20		
+R45  +5VD GPIO1 4k7		
+C68  +5VD GNDD 0.1u		
+U22  VPP GNDD +12V ? /EN ? G5V_45_1_32_12DC		
+P13  GNDD /PWM /EN CONN_01X03		
+R46  GNDD GPIO0 4k7		
+R47  /PWM GPIO0 6k8		
+R49  GNDD Net-_R43-Pad2_ 2k2		
+R50  GNDD Net-_R41-Pad2_ 2k2		
+R48  GNDD Net-_R44-Pad2_ 2k2		
+D18  Net-_C63-Pad1_ GNDD MM3Z3V6S		
+
+.end
