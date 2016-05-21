@@ -7,3 +7,5 @@
 *.obj
 *.previous.xml
 
+# MSO
+~$*
