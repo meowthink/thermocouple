@@ -35,15 +35,15 @@ _startupData is allocated at 0x19FE and uses 6 Bytes
 extern struct _tagStartup {
   unsigned nofZeroOut     1
   _Range   pZeroOut       0xA0     23
-  _Copy    *toCopyDownBeg 0x232F
+  _Copy    *toCopyDownBeg 0x234A
 } _startupData;
 
 *********************************************************************************************
 SECTION-ALLOCATION SECTION
 Section Name                    Size  Type     From       To       Segment
 ---------------------------------------------------------------------------------------------
-.text                           2321     R     0x1A0C     0x231C   ROM
-.rodata                           18     R     0x231D     0x232E   ROM
+.text                           2348     R     0x1A0C     0x2337   ROM
+.rodata                           18     R     0x2338     0x2349   ROM
 .abs_section_ffbd                  1     R     0xFFBD     0xFFBD   .absSeg0
 .abs_section_ffbf                  1     R     0xFFBF     0xFFBF   .absSeg1
 .abs_section_0                     1   N/I        0x0        0x0   .absSeg2
@@ -231,10 +231,10 @@ Section Name                    Size  Type     From       To       Segment
 .init                            254     R     0x1900     0x19FD   ROM
 .common                           17   R/W       0xA6       0xB6   RAM
 .stack                           128   R/W       0xB7      0x136   RAM
-.copy                              2     R     0x232F     0x2330   ROM
+.copy                              2     R     0x234A     0x234B   ROM
 
 Summary of section sizes per section type:
-READ_ONLY (R):         A73 (dec:     2675)
+READ_ONLY (R):         A8E (dec:     2702)
 READ_WRITE (R/W):       97 (dec:      151)
 NO_INIT (N/I):          CD (dec:      205)
 
@@ -257,59 +257,59 @@ MODULE:                 -- main_c.obj --
      SFlash_read                               1A11      5B      91       2   .text       
      AD7793_reset                              1A6C      21      33       1   .text       
      AD7793_getReg8                            1A8D      2C      44       4   .text       
-     AD7793_setReg16                           1AB9      3B      59       6   .text       
+     AD7793_setReg16                           1AB9      3B      59       7   .text       
      AD7793_getReg                             1AF4      3F      63       1   .text       
-     main                                      1B33     2B2     690       9   .text       
+     main                                      1B33     2CD     717      13   .text       
 - VARIABLES:
 MODULE:                 -- start08_c.obj --
 - PROCEDURES:
-     loadByte                                  1DE5       E      14       5   .text       
-     Init                                      1DF3      6D     109       1   .text       
-     _Startup                                  1E60       9       9       1   .text       
+     loadByte                                  1E00       E      14       5   .text       
+     Init                                      1E0E      6D     109       1   .text       
+     _Startup                                  1E7B       9       9       1   .text       
 - VARIABLES:
      _startupData                              19FE       6       6       4   .startData  
 - LABELS:
      __SEG_END_SSTACK                           137       0       0       1               
 MODULE:                 -- AD_c.obj --
 - PROCEDURES:
-     AD_MainMeasure                            1E69      5B      91       1   .text       
-     AD_HWEnDi                                 1EC4      21      33       1   .text       
-     PE_AD_MeasureChan                         1EE5      1B      27       1   .text       
-     AD_Init                                   1F00      13      19       1   .text       
+     AD_MainMeasure                            1E84      5B      91       1   .text       
+     AD_HWEnDi                                 1EDF      21      33       1   .text       
+     PE_AD_MeasureChan                         1F00      1B      27       1   .text       
+     AD_Init                                   1F1B      13      19       1   .text       
 - VARIABLES:
-     Table                                     231D       8       8       2   .rodata     
-     Channels                                  2325       8       8       1   .rodata     
+     Table                                     2338       8       8       2   .rodata     
+     Channels                                  2340       8       8       1   .rodata     
      OutFlg                                      A1       1       1       5   .bss        
      SumChan                                     A2       1       1       7   .bss        
      ModeFlg                                     A3       1       1       5   .bss        
-     AD_OutV                                     A6      10      16      11   .common     
+     AD_OutV                                     A6      10      16       7   .common     
 MODULE:                 -- AS_c.obj --
 - PROCEDURES:
-     AS_Init                                   1F13      13      19       1   .text       
+     AS_Init                                   1F2E      13      19       1   .text       
 - VARIABLES:
 MODULE:                 -- BitsCS_c.obj --
 - PROCEDURES:
-     BitsCS_GetMsk                             1F26       C      12       2   .text       
-     BitsCS_ClrBit                             1F32       8       8       5   .text       
-     BitsCS_SetBit                             1F3A       C      12       5   .text       
+     BitsCS_GetMsk                             1F41       C      12       2   .text       
+     BitsCS_ClrBit                             1F4D       8       8       5   .text       
+     BitsCS_SetBit                             1F55       C      12       5   .text       
 - VARIABLES:
-     BitsCS_Table                              232D       2       2       1   .rodata     
+     BitsCS_Table                              2348       2       2       1   .rodata     
 MODULE:                 -- BitsMux_c.obj --
 - PROCEDURES:
-     BitsMux_PutVal                            1F46       D      13       3   .text       
+     BitsMux_PutVal                            1F61       D      13       3   .text       
 - VARIABLES:
 MODULE:                 -- CAN_c.obj --
 - PROCEDURES:
-     CAN_GetStateRX                            1F53       C      12       2   .text       
-     CAN_SetAcceptanceCode                     1F5F      47      71       3   .text       
-     CAN_SendFrame                             1FA6     120     288       2   .text       
-     CAN_Init                                  20C6      61      97       1   .text       
-     CAN_SetAcceptanceMask                     2127      47      71       1   .text       
+     CAN_GetStateRX                            1F6E       C      12       2   .text       
+     CAN_SetAcceptanceCode                     1F7A      47      71       3   .text       
+     CAN_SendFrame                             1FC1     120     288       2   .text       
+     CAN_Init                                  20E1      61      97       1   .text       
+     CAN_SetAcceptanceMask                     2142      47      71       1   .text       
 - VARIABLES:
 MODULE:                 -- Cpu_c.obj --
 - PROCEDURES:
      Cpu_Interrupt                             1900       4       4      30   .init       
-     Cpu_Delay100US                            1904      19      25       6   .init       
+     Cpu_Delay100US                            1904      19      25       5   .init       
      _EntryPoint                               191D      53      83       1   .init       
      PE_low_level_init                         1970      8E     142       1   .init       
 - VARIABLES:
@@ -500,13 +500,13 @@ MODULE:                 -- IO_Map_c.obj --
      _CANTIDR                                  18B0       4       4       1   .abs_section_18b0
 MODULE:                 -- SM_c.obj --
 - PROCEDURES:
-     SM_Init                                   216E       F      15       1   .text       
+     SM_Init                                   2189       F      15       1   .text       
 - VARIABLES:
 MODULE:                 -- TIKrnl_c.obj --
 - PROCEDURES:
-     TIKrnl_Init                               217D      1A      26       1   .text       
-     TIKrnl_Interrupt                          2197       8       8       1   .text       
-     TIKrnl_SetCV                              219F       5       5       2   .text       
+     TIKrnl_Init                               2198      1A      26       1   .text       
+     TIKrnl_Interrupt                          21B2       8       8       1   .text       
+     TIKrnl_SetCV                              21BA       5       5       2   .text       
 - VARIABLES:
      CmpHighVal                                  A4       2       2       2   .bss        
 MODULE:                 -- Vectors_c.obj --
@@ -515,25 +515,25 @@ MODULE:                 -- Vectors_c.obj --
      _vect                                     FFC0      40      64       0   .abs_section_ffc0
 MODULE:                 -- rtshc08.o (ansiis.lib) --
 - PROCEDURES:
-     _PUSH_ARGS_L                              21A4      20      32       2   .text       
-     _ENTER_UNARY_L                            21C4      29      41       1   .text       
-     _ENTER_BINARY_L                           21ED      16      22       1   .text       
-     _ENTER_BINARY_L_RC                        2203      19      25       4   .text       
-     _LADD_k_is_k_plus_j                       221C      1F      31       1   .text       
-     _LAND_k_is_k_and_j                        223B      1F      31       1   .text       
-     _LOR_k_is_k_or_j                          225A      1F      31       2   .text       
-     _LCMP_k_rel_j                             2279      1F      31       1   .text       
-     _ILSL                                     2298       C      12       1   .text       
-     _LADD_RC                                  22A4       6       6       1   .text       
-     _LAND_RC                                  22AA       6       6       3   .text       
-     _LOR                                      22B0       6       6       1   .text       
-     _LOR_RC                                   22B6       6       6       1   .text       
-     _LLSL                                     22BC      16      22       5   .text       
-     _LCMP_RC                                  22D2       6       6       1   .text       
-     _POP32                                    22D8      1A      26       2   .text       
-     _SEXT16_32                                22F2       D      13       2   .text       
-     _PUSH_CC                                  22FF       F      15       1   .text       
-     _POP_CC                                   230E       F      15       1   .text       
+     _PUSH_ARGS_L                              21BF      20      32       2   .text       
+     _ENTER_UNARY_L                            21DF      29      41       1   .text       
+     _ENTER_BINARY_L                           2208      16      22       1   .text       
+     _ENTER_BINARY_L_RC                        221E      19      25       4   .text       
+     _LADD_k_is_k_plus_j                       2237      1F      31       1   .text       
+     _LAND_k_is_k_and_j                        2256      1F      31       1   .text       
+     _LOR_k_is_k_or_j                          2275      1F      31       2   .text       
+     _LCMP_k_rel_j                             2294      1F      31       1   .text       
+     _ILSL                                     22B3       C      12       1   .text       
+     _LADD_RC                                  22BF       6       6       1   .text       
+     _LAND_RC                                  22C5       6       6       3   .text       
+     _LOR                                      22CB       6       6       1   .text       
+     _LOR_RC                                   22D1       6       6       1   .text       
+     _LLSL                                     22D7      16      22       5   .text       
+     _LCMP_RC                                  22ED       6       6       1   .text       
+     _POP32                                    22F3      1A      26       2   .text       
+     _SEXT16_32                                230D       D      13       1   .text       
+     _PUSH_CC                                  231A       F      15       1   .text       
+     _POP_CC                                   2329       F      15       1   .text       
 - VARIABLES:
 
 *********************************************************************************************
@@ -541,7 +541,7 @@ MODULE STATISTIC
   Name                                      Data   Code  Const
 ---------------------------------------------------------------------------------------------
   Events_c.obj                                 1      5      0
-  main_c.obj                                   0    980      0
+  main_c.obj                                   0   1007      0
   start08_c.obj                                0    132      0
   AD_c.obj                                    19    170     16
   AS_c.obj                                     0     19      0
@@ -1027,7 +1027,7 @@ OBJECT LIST SORTED BY ADDRESS
      SumChan                                     A2       1       1       7   .bss        
      ModeFlg                                     A3       1       1       5   .bss        
      CmpHighVal                                  A4       2       2       2   .bss        
-     AD_OutV                                     A6      10      16      11   .common     
+     AD_OutV                                     A6      10      16       7   .common     
      CCR_lock                                    B6       1       1       1   .common     
      _SRS                                      1800       1       1       0   .abs_section_1800
      _SBDFR                                    1801       1       1       0   .abs_section_1801
@@ -1133,59 +1133,59 @@ OBJECT LIST SORTED BY ADDRESS
      _CANTTBPR                                 18BD       1       1       0   .abs_section_18bd
      _CANTTSR                                  18BE       2       2       0   .abs_section_18be
      Cpu_Interrupt                             1900       4       4      30   .init       
-     Cpu_Delay100US                            1904      19      25       6   .init       
+     Cpu_Delay100US                            1904      19      25       5   .init       
      _EntryPoint                               191D      53      83       1   .init       
      PE_low_level_init                         1970      8E     142       1   .init       
      TIKrnl_OnInterrupt                        1A0C       5       5       1   .text       
      SFlash_read                               1A11      5B      91       2   .text       
      AD7793_reset                              1A6C      21      33       1   .text       
      AD7793_getReg8                            1A8D      2C      44       4   .text       
-     AD7793_setReg16                           1AB9      3B      59       6   .text       
+     AD7793_setReg16                           1AB9      3B      59       7   .text       
      AD7793_getReg                             1AF4      3F      63       1   .text       
-     main                                      1B33     2B2     690       9   .text       
-     loadByte                                  1DE5       E      14       5   .text       
-     Init                                      1DF3      6D     109       1   .text       
-     _Startup                                  1E60       9       9       1   .text       
-     AD_MainMeasure                            1E69      5B      91       1   .text       
-     AD_HWEnDi                                 1EC4      21      33       1   .text       
-     PE_AD_MeasureChan                         1EE5      1B      27       1   .text       
-     AD_Init                                   1F00      13      19       1   .text       
-     AS_Init                                   1F13      13      19       1   .text       
-     BitsCS_GetMsk                             1F26       C      12       2   .text       
-     BitsCS_ClrBit                             1F32       8       8       5   .text       
-     BitsCS_SetBit                             1F3A       C      12       5   .text       
-     BitsMux_PutVal                            1F46       D      13       3   .text       
-     CAN_GetStateRX                            1F53       C      12       2   .text       
-     CAN_SetAcceptanceCode                     1F5F      47      71       3   .text       
-     CAN_SendFrame                             1FA6     120     288       2   .text       
-     CAN_Init                                  20C6      61      97       1   .text       
-     CAN_SetAcceptanceMask                     2127      47      71       1   .text       
-     SM_Init                                   216E       F      15       1   .text       
-     TIKrnl_Init                               217D      1A      26       1   .text       
-     TIKrnl_Interrupt                          2197       8       8       1   .text       
-     TIKrnl_SetCV                              219F       5       5       2   .text       
-     _PUSH_ARGS_L                              21A4      20      32       2   .text       
-     _ENTER_UNARY_L                            21C4      29      41       1   .text       
-     _ENTER_BINARY_L                           21ED      16      22       1   .text       
-     _ENTER_BINARY_L_RC                        2203      19      25       4   .text       
-     _LADD_k_is_k_plus_j                       221C      1F      31       1   .text       
-     _LAND_k_is_k_and_j                        223B      1F      31       1   .text       
-     _LOR_k_is_k_or_j                          225A      1F      31       2   .text       
-     _LCMP_k_rel_j                             2279      1F      31       1   .text       
-     _ILSL                                     2298       C      12       1   .text       
-     _LADD_RC                                  22A4       6       6       1   .text       
-     _LAND_RC                                  22AA       6       6       3   .text       
-     _LOR                                      22B0       6       6       1   .text       
-     _LOR_RC                                   22B6       6       6       1   .text       
-     _LLSL                                     22BC      16      22       5   .text       
-     _LCMP_RC                                  22D2       6       6       1   .text       
-     _POP32                                    22D8      1A      26       2   .text       
-     _SEXT16_32                                22F2       D      13       2   .text       
-     _PUSH_CC                                  22FF       F      15       1   .text       
-     _POP_CC                                   230E       F      15       1   .text       
-     Table                                     231D       8       8       2   .rodata     
-     Channels                                  2325       8       8       1   .rodata     
-     BitsCS_Table                              232D       2       2       1   .rodata     
+     main                                      1B33     2CD     717      13   .text       
+     loadByte                                  1E00       E      14       5   .text       
+     Init                                      1E0E      6D     109       1   .text       
+     _Startup                                  1E7B       9       9       1   .text       
+     AD_MainMeasure                            1E84      5B      91       1   .text       
+     AD_HWEnDi                                 1EDF      21      33       1   .text       
+     PE_AD_MeasureChan                         1F00      1B      27       1   .text       
+     AD_Init                                   1F1B      13      19       1   .text       
+     AS_Init                                   1F2E      13      19       1   .text       
+     BitsCS_GetMsk                             1F41       C      12       2   .text       
+     BitsCS_ClrBit                             1F4D       8       8       5   .text       
+     BitsCS_SetBit                             1F55       C      12       5   .text       
+     BitsMux_PutVal                            1F61       D      13       3   .text       
+     CAN_GetStateRX                            1F6E       C      12       2   .text       
+     CAN_SetAcceptanceCode                     1F7A      47      71       3   .text       
+     CAN_SendFrame                             1FC1     120     288       2   .text       
+     CAN_Init                                  20E1      61      97       1   .text       
+     CAN_SetAcceptanceMask                     2142      47      71       1   .text       
+     SM_Init                                   2189       F      15       1   .text       
+     TIKrnl_Init                               2198      1A      26       1   .text       
+     TIKrnl_Interrupt                          21B2       8       8       1   .text       
+     TIKrnl_SetCV                              21BA       5       5       2   .text       
+     _PUSH_ARGS_L                              21BF      20      32       2   .text       
+     _ENTER_UNARY_L                            21DF      29      41       1   .text       
+     _ENTER_BINARY_L                           2208      16      22       1   .text       
+     _ENTER_BINARY_L_RC                        221E      19      25       4   .text       
+     _LADD_k_is_k_plus_j                       2237      1F      31       1   .text       
+     _LAND_k_is_k_and_j                        2256      1F      31       1   .text       
+     _LOR_k_is_k_or_j                          2275      1F      31       2   .text       
+     _LCMP_k_rel_j                             2294      1F      31       1   .text       
+     _ILSL                                     22B3       C      12       1   .text       
+     _LADD_RC                                  22BF       6       6       1   .text       
+     _LAND_RC                                  22C5       6       6       3   .text       
+     _LOR                                      22CB       6       6       1   .text       
+     _LOR_RC                                   22D1       6       6       1   .text       
+     _LLSL                                     22D7      16      22       5   .text       
+     _LCMP_RC                                  22ED       6       6       1   .text       
+     _POP32                                    22F3      1A      26       2   .text       
+     _SEXT16_32                                230D       D      13       1   .text       
+     _PUSH_CC                                  231A       F      15       1   .text       
+     _POP_CC                                   2329       F      15       1   .text       
+     Table                                     2338       8       8       2   .rodata     
+     Channels                                  2340       8       8       1   .rodata     
+     BitsCS_Table                              2348       2       2       1   .rodata     
      NVPROT_INIT                               FFBD       1       1       0   .abs_section_ffbd
      NVOPT_INIT                                FFBF       1       1       0   .abs_section_ffbf
      _vect                                     FFC0      40      64       0   .abs_section_ffc0
@@ -1237,7 +1237,7 @@ rtshc08.o (ansiis.lib):
 *********************************************************************************************
 COPYDOWN SECTION
 ---------------------------------------------------------------------------------------------
-------- ROM-ADDRESS: 0x232F ---- SIZE       2 ---
+------- ROM-ADDRESS: 0x234A ---- SIZE       2 ---
 Filling bytes inserted
  0000
 
@@ -1261,8 +1261,8 @@ main                      USES PE_low_level_init CAN_SetAcceptanceCode
                                 CAN_SetAcceptanceMask AD7793_reset Cpu_Delay100US AD7793_getReg8 
                                 _PUSH_CC _POP_CC main AD7793_setReg16 _CANRFLG 
                                 CAN_GetStateRX _ILSL _PTDD BitsMux_PutVal fWrk 
-                                PE_AD_MeasureChan AD_OutV AD7793_getReg _SEXT16_32 _LADD_RC 
-                                _LLSL SFlash_read _LAND_RC _CANTFLG _CANTARQ 
+                                PE_AD_MeasureChan AD_OutV AD7793_getReg _LADD_RC _LLSL 
+                                SFlash_read _SEXT16_32 _LAND_RC _CANTFLG _CANTARQ 
                                 CAN_SendFrame 
 Init                      USES _startupData loadByte 
 _Startup                  USES __SEG_END_SSTACK Init main 
@@ -1375,8 +1375,6 @@ DEPENDENCY TREE
  |  |  |  
  |  |  +- BitsCS_SetBit        (see above)
  |  |     
- |  +- _SEXT16_32          
- |  |    
  |  +- _LADD_RC            
  |  |  | 
  |  |  +- _ENTER_BINARY_L_RC  
@@ -1395,6 +1393,8 @@ DEPENDENCY TREE
  |  |  |  
  |  |  +- BitsCS_SetBit        (see above)
  |  |     
+ |  +- _SEXT16_32          
+ |  |    
  |  +- _LAND_RC            
  |  |  | 
  |  |  +- _ENTER_BINARY_L_RC   (see above)
@@ -1455,6 +1455,6 @@ STATISTIC SECTION
 
 ExeFile:
 --------
-Number of blocks to be downloaded: 8
-Total size of all blocks to be downloaded: 2675
+Number of blocks to be downloaded: 7
+Total size of all blocks to be downloaded: 2702
 

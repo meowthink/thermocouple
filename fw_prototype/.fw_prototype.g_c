@@ -79,7 +79,7 @@
     </GenFiles>
     <SignalListFile>Documentation\fw_prototype_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>MetrowerksHCS08CC</DestinationCompiler>
-    <ProjectModificationStamp>39</ProjectModificationStamp>
+    <ProjectModificationStamp>42</ProjectModificationStamp>
   </Options>
   <CpuID_6>
     <Generated>true</Generated>
@@ -715,8 +715,8 @@
     <GenComponentVersion>01.697</GenComponentVersion>
     <GenDriverVersion>01.30</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1219708988</HeaderAge>
-    <CodeAge>1219708988</CodeAge>
+    <HeaderAge>1219869175</HeaderAge>
+    <CodeAge>1219869175</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>20</GenNumMethods>
     <Enable>false</Enable>

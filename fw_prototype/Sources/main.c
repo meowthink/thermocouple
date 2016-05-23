@@ -45,6 +45,16 @@
 #include "IO_Map.h"
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
+/*
+ * Copyright (c) 2016, meowthink
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+ * 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+ * 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
 /* Functions for operating Flash through SPI, blocking */
 void SFlash_reset(void)
 {
@@ -386,26 +396,36 @@ void main(void)
   {
 	  char fTxSlot = 1;
 	  short iResult[8];
+	  unsigned short iCJ[8];
 	  /* Timeline/ms  0 1 2 3 4 5 6 7 8 9 10 11 12 13 
-	   * MCU          SPI1      AD    SPI1 SPI0/Calc
-	   * AD7793       Settle~1st~~2nd    ~BO~  ~Idle~ */
+	   * MCU          SPI1 ~~~~AD~~~~ SPI1 SPI0/Calc
+	   * AD7793       Settle~sample~~    ~BO~  ~Idle~ */
 	  if(fWrk)
 	  {
+		  char i;
 		  AD7793_setReg16(0x2, 0x8490); // Config: Switch off BO, VBIAS on AIN2
-		  AD7793_setReg16(0x1, 0x0001); // Mode: Continuos Conv, tSETTLE = 4ms
-		  Cpu_Delay100US(50); // 1st sample: 1ms + tSETTLE
-		  (void)AD_MeasureChan(-1, iChn); // ~100us * 8(Oversample 1.5 bit)
-		  if (AD_OutV[iChn] & 0x7 > 3) // Round to 12 bit
-			  AD_OutV[iChn] += 8;
-		  AD_OutV[iChn] >>= 3;
+		  //AD7793_setReg16(0x1, 0x0001); // Mode: Continuous Conv, tSETTLE = 4ms
+		  AD7793_setReg16(0x1, 0x2001); // Mode: Single Conv, tSETTLE = 4ms
+		  //Cpu_Delay100US(50); // 1st sample: 1ms + tSETTLE
+		  // AD takes ~200us * 64
+		  iCJ[iChn] = 0;
+		  for (i = 0; i < 4; i ++) // To oversample 3 bits by 64 samples
+		  {
+			  (void)AD_MeasureChan(-1, iChn); // 16 samples
+			  if (AD_OutV[iChn] & 0x3 > 1)
+				  iCJ[iChn] ++;
+			  iCJ[iChn] += (unsigned)AD_OutV[iChn] >> 2; // sum 14 effective bits up
+		  }
+		  // iCJ is 15 effective bits + 1 bit noise
 		  //Cpu_Delay100US(21); // 2nd sample: tSETTLE/2
 		  while (AD7793_getReg8(0) & 0x80);
 		  BitsMux_PutVal(0); // Switch multiplexer off
 		  //AD7793_setReg16(0x1, 0x4001); // Mode: Idle
-		  AD7793_setReg16(0x2, 0x2490); // Config: Switch on BO, decharge input lines
-		  AD7793_getReg(0x3, buf, f7792 ? 2 : 3);
+		  AD7793_setReg16(0x2, 0x2490); // Config: Switch on BO, to discharge input lines
+		  AD7793_setReg16(0x1, 0x0001); // Mode: Continuous Conv, tSETTLE = 4ms
+		  AD7793_getReg(0x3, buf, f7792 ? 2 : 3); // Last result
 		  iResult[iChn] = *(short *)buf;
-		  SFlash_read(((long)0x10000 + AD_OutV[iChn]) * 2, buf, 2); // Lookup the cold junction conversion
+		  SFlash_read(((long)0x10000 + iCJ[iChn]) * 2, buf, 2); // Lookup the cold junction conversion
 		  iResult[iChn] += *(short *)buf;// Combine the result
 		  SFlash_read(((long)iResult[iChn] * 2) & 0x1fffe, buf, 2); // Lookup the result
 		  iResult[iChn] = *(short *)buf;
@@ -419,7 +439,7 @@ void main(void)
 	      }
 		  iChn ++;
 		  iChn &= 0x7; // Loop in 0~7
-		  Cpu_Delay100US(20+20); // 2ms
+		  Cpu_Delay100US(20); // 2ms
 		  AD7793_setReg16(0x1, 0x4001); // Mode: Idle
 		  BitsMux_PutVal(0x8 | iChn); // Switch multiplexer to next channel
 		  fWrk = 0;

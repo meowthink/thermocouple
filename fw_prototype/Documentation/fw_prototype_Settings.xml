@@ -582,7 +582,7 @@ autoselected pull
       <Sample_time v="long" />
       <boolgroup name="External trigger" v="Disabled" />
       <boolgroup name="Internal trigger" v="Disabled" />
-      <Number_of_conversions v="8" />
+      <Number_of_conversions v="16" />
       <group name="Initialization">
         <Enabled_in_init__code v="yes" />
         <Events_enabled_in_init_ v="yes" />

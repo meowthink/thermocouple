@@ -6,7 +6,7 @@
 **     Component   : ADC
 **     Version     : Component 01.697, Driver 01.30, CPU db: 3.00.025
 **     Compiler    : CodeWarrior HCS08 C Compiler
-**     Date/Time   : 2016-05-19, 09:01, # CodeGen: 38
+**     Date/Time   : 2016-05-21, 23:15, # CodeGen: 43
 **     Abstract    :
 **         This device "ADC" implements an A/D converter,
 **         its control methods and interrupt/event handling procedure.
@@ -46,7 +46,7 @@
 **          Sample time                                    : long
 **          External trigger                               : Disabled
 **          Internal trigger                               : Disabled
-**          Number of conversions                          : 8
+**          Number of conversions                          : 16
 **          Initialization                                 : 
 **            Enabled in init. code                        : yes
 **            Events enabled in init.                      : yes
@@ -157,7 +157,7 @@ static void AD_MainMeasure(void)
   byte SumCnt;                         /* Number of measured channels */
   TWREG tmpTwreg;
 
-  for (SumCnt=0U; SumCnt<8U; SumCnt++) {
+  for (SumCnt=0U; SumCnt<16U; SumCnt++) {
     ADCSC1 = Channels[SumChan];        /* Start measurement of next channel */
     while (ADCSC1_COCO == 0U) {}       /* Wait for AD conversion complete */
     /*lint -save  -e740 -e931 Disable MISRA rule (1.2) checking. */
