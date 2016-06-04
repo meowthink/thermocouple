@@ -302,7 +302,8 @@ void main(void)
   char buf[4];
   char f7792 = 0;
   unsigned short iDID = 0x400;
-  
+  char fTxSlot = 0;
+
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
   PE_low_level_init();
   /*** End of Processor Expert internal initialization.                    ***/
@@ -394,7 +395,6 @@ void main(void)
   /* Main working loop */
   for (;;)
   {
-	  char fTxSlot = 1;
 	  short iResult[8];
 	  unsigned short iCJ[8];
 	  /* Timeline/ms  0 1 2 3 4 5 6 7 8 9 10 11 12 13 
@@ -430,12 +430,12 @@ void main(void)
 		  SFlash_read(((long)iResult[iChn] * 2) & 0x1fffe, buf, 2); // Lookup the result
 		  iResult[iChn] = *(short *)buf;
 	      if (!(iChn & 0x3 )) { // Send through CAN every 4 channels
-	    	if (CANTFLG & fTxSlot)
+	    	if (!(CANTFLG & (1 << fTxSlot)))
 	          CAN_AbortMessage(fTxSlot); // Drop old frames if overrun
 	        (void)CAN_SendFrame(fTxSlot, iDID + (iChn >> 2), 0, 8, (unsigned char *)&iResult[iChn]);
-	        fTxSlot <<= 1;
-	        if (fTxSlot >= 0x08)
-	          fTxSlot = 1;
+	        fTxSlot ++;
+	        if (fTxSlot >= 3)
+	          fTxSlot = 0;
 	      }
 		  iChn ++;
 		  iChn &= 0x7; // Loop in 0~7

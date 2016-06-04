@@ -29,21 +29,21 @@
       <File Name="Generated_Code/AS.h" FileDate="2016-05-06, 16:30:49" FileAge="1462523449029" FileType="45637" CompNumb="25" />
       <File Name="Generated_Code/BitDCCTL.h" FileDate="2016-05-19, 16:27:21" FileAge="1463646441049" FileType="45637" CompNumb="39" />
       <File Name="Generated_Code/PE_Error.h" FileDate="2016-05-05, 09:32:49" FileAge="1462411969587" FileType="45637" />
-      <File Name="Sources/main.c" FileDate="2016-05-23, 08:57:02" FileAge="1463965022385" FileType="128" />
       <File Name="Generated_Code/AS.c" FileDate="2016-05-06, 16:30:49" FileAge="1462523449046" FileType="45637" CompNumb="25" />
+      <File Name="Sources/main.c" FileDate="2016-06-04, 17:28:33" FileAge="1465032513849" FileType="128" />
       <File Name="Generated_Code/BitDCCTL.c" FileDate="2016-05-19, 16:27:21" FileAge="1463646441047" FileType="45637" CompNumb="39" />
       <File Name="Generated_Code/BitsCS.h" FileDate="2016-05-05, 17:12:19" FileAge="1462439539140" FileType="45637" CompNumb="8" />
-      <File Name="Documentation/fw_prototype_SIGNALS.txt" FileDate="2016-05-23, 08:57:12" FileAge="1463965032293" FileType="3072" />
       <File Name="Sources/Events.h" FileDate="2016-05-19, 16:27:21" FileAge="1463646441132" FileType="131328" />
-      <File Name="Generated_Code/BitsMux.h" FileDate="2016-05-05, 09:32:49" FileAge="1462411969682" FileType="45637" CompNumb="9" />
+      <File Name="Documentation/fw_prototype_SIGNALS.txt" FileDate="2016-06-04, 17:28:48" FileAge="1465032528571" FileType="3072" />
       <File Name="Generated_Code/BitsCS.c" FileDate="2016-05-05, 17:12:19" FileAge="1462439539130" FileType="45637" CompNumb="8" />
+      <File Name="Generated_Code/BitsMux.h" FileDate="2016-05-05, 09:32:49" FileAge="1462411969682" FileType="45637" CompNumb="9" />
       <File Name="Project_Settings/Linker_Files/ProcessorExpert.prm" FileDate="2016-05-05, 09:32:49" FileAge="1462411969774" FileType="8" CompNumb="6" />
-      <File Name="Generated_Code/CAN.h" FileDate="2016-05-19, 16:27:21" FileAge="1463646441063" FileType="45637" CompNumb="29" />
-      <File Name="Generated_Code/SM.h" FileDate="2016-05-05, 16:45:41" FileAge="1462437941029" FileType="45637" CompNumb="7" />
       <File Name="Sources/Events.c" FileDate="2016-05-06, 10:56:08" FileAge="1462503368224" FileType="131328" />
+      <File Name="Generated_Code/SM.h" FileDate="2016-05-05, 16:45:41" FileAge="1462437941029" FileType="45637" CompNumb="7" />
+      <File Name="Generated_Code/CAN.h" FileDate="2016-05-19, 16:27:21" FileAge="1463646441063" FileType="45637" CompNumb="29" />
       <File Name="Generated_Code/PE_Timer.h" FileDate="2016-05-05, 09:32:49" FileAge="1462411969449" FileType="45637" />
       <File Name="Generated_Code/BitsMux.c" FileDate="2016-05-05, 09:32:49" FileAge="1462411969669" FileType="45637" CompNumb="9" />
     </GeneratedByPE>
   </GeneratedFilesList>
-  <CodeGenReference>45</CodeGenReference>
+  <CodeGenReference>46</CodeGenReference>
 </CodeGenerationInfo>
